@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "featureId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

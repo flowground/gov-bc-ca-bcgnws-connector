@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "nameId": {
+            "required": true,
+            "type": "integer"
+        },
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "xml",
+                "kml",
+                "csv",
+                "html"
+            ],
+            "type": "string"
+        }
+    }
+}

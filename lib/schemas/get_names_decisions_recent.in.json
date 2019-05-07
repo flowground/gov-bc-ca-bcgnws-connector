@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "required": true,
+            "default": "json",
+            "enum": [
+                "json",
+                "xml",
+                "kml",
+                "csv"
+            ],
+            "type": "string"
+        },
+        "days": {
+            "required": true,
+            "default": 30,
+            "type": "integer"
+        },
+        "featureClass": {
+            "required": false,
+            "default": "*",
+            "type": "string"
+        },
+        "featureCategory": {
+            "required": false,
+            "default": "*",
+            "type": "string"
+        },
+        "featureType": {
+            "required": false,
+            "default": "*",
+            "type": "string"
+        },
+        "sortBy": {
+            "required": false,
+            "default": "name",
+            "enum": [
+                "name",
+                "featureType",
+                "decisionDate"
+            ],
+            "type": "string"
+        },
+        "outputSRS": {
+            "required": false,
+            "default": 4326,
+            "enum": [
+                4326,
+                4269,
+                3005,
+                3857,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+            ],
+            "type": "integer"
+        },
+        "embed": {
+            "required": false,
+            "enum": [
+                0,
+                1
+            ],
+            "type": "integer"
+        },
+        "outputStyle": {
+            "required": false,
+            "default": "summary",
+            "enum": [
+                "summary",
+                "detail"
+            ],
+            "type": "string"
+        },
+        "itemsPerPage": {
+            "required": false,
+            "default": 20,
+            "type": "integer"
+        },
+        "startIndex": {
+            "required": false,
+            "default": 1,
+            "type": "integer"
+        }
+    }
+}

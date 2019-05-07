@@ -1,0 +1,274 @@
+{
+    "title": "BC Geographical Names Web Service -",
+    "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, including name status and details about the corresponding geographic feature. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/gov.bc.ca/bcgnws/3.x.x/openapi.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://apps.gov.bc.ca/pub/bcgnws - Production",
+                    "https://test.apps.gov.bc.ca/pub/bcgnws - Test",
+                    "https://delivery.apps.gov.bc.ca/pub/bcgnws - Delivery",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_featureCategories": {
+            "main": "./lib/actions/get_featureCategories.js",
+            "title": "Get all feature categories",
+            "description": "Gets a list of all feature categories used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_featureCategories.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_featureClasses": {
+            "main": "./lib/actions/get_featureClasses.js",
+            "title": "Get all feature classes",
+            "description": "Gets a list of all feature classes used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_featureClasses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_featureTypes": {
+            "main": "./lib/actions/get_featureTypes.js",
+            "title": "Get all feature types",
+            "description": "Gets a list of all feature types used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_featureTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_features__featureId_": {
+            "main": "./lib/actions/get_features__featureId_.js",
+            "title": "Get a feature by its featureId",
+            "description": "Get information about the geographical feature with the specified featureId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_features__featureId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_nameAuthorities": {
+            "main": "./lib/actions/get_nameAuthorities.js",
+            "title": "Get all name authorities",
+            "description": "Gets a list of all name authorities responsible for naming decisions of the geographical names in the BC Geographical Names Information System (BCGNIS)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_nameAuthorities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_changes": {
+            "main": "./lib/actions/get_names_changes.js",
+            "title": "Search for names with metadata changes in a given period",
+            "description": "Search for information about geographical names which have changed most recently within a specified time window.  Changes may include status cupdates and metadata corrections.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_changes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_decisions_recent": {
+            "main": "./lib/actions/get_names_decisions_recent.js",
+            "title": "Search for names affected by recent naming decision",
+            "description": "Search for information about geographical names affected by naming 'decisions' made by the BC Geographical Names Office (naming authority) within the last X days.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_decisions_recent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_decisions_year": {
+            "main": "./lib/actions/get_names_decisions_year.js",
+            "title": "Search for names affected by naming decisions in a given year",
+            "description": "Search for information about geographical names affected by naming 'decisions' made by the BC Geographical Names Office (naming authority) in a given year.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_decisions_year.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_inside": {
+            "main": "./lib/actions/get_names_inside.js",
+            "title": "Search in a geographic area",
+            "description": "Search for information about geographical names that correspond to features within a geographic bounding box.  Various options and filter parameters are available to refine the search.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_inside.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_near": {
+            "main": "./lib/actions/get_names_near.js",
+            "title": "Search near to a geographic point",
+            "description": "Search for information about geographical names that correspond to features within a geographic area defined by a centre point and a radius.  Various options and filter parameters are available to refine the search.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_near.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_notOfficial_search": {
+            "main": "./lib/actions/get_names_notOfficial_search.js",
+            "title": "Search by name, limit to unofficial names only",
+            "description": "Search for information about unofficial geographical names by the text of the name itself.  Various options and filter parameters are available to refine the search.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_notOfficial_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_official_search": {
+            "main": "./lib/actions/get_names_official_search.js",
+            "title": "Search by name, limit to official names only",
+            "description": "Search for information about official geographical names by the text of the name itself.  Various options and filter parameters are available to refine the search.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_official_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names_search": {
+            "main": "./lib/actions/get_names_search.js",
+            "title": "Search by name",
+            "description": "Search for information about geographical names by the text of the name itself.  The response will include both official and unofficial names.  Various options and filter parameters are available to refine the search.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_names__nameId___outputFormat_": {
+            "main": "./lib/actions/get_names__nameId___outputFormat_.js",
+            "title": "Get a name by its nameId",
+            "description": "Get information about the geographical name with the specified nameId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_names__nameId___outputFormat_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

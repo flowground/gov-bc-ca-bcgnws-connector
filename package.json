@@ -1,0 +1,15 @@
+{
+    "name": "gov-bc-ca-bcgnws-connector",
+    "version": "3.0.0",
+    "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, including name status and details about the corresponding geographic feature. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}
